@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grace Daka - Game Localization Linguist &amp; Narrative Specialist CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+         :root {
+            --ink: #241f2e;
+            --ink-soft: #4d4559;
+            --muted: #7d7489;
+            --line: #e6e1ec;
+            --accent: #6d3fa0;
+            --accent-deep: #4a2570;
+            --accent-soft: #f1eaf9;
+            --rail-bg: #faf8fc;
+            --rail-line: #e9e2f2;
+            --chip-bg: #efe8f7;
+            --page-w: 210mm;
+            --page-h: 297mm;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            background: #5c5566;
+            font-family: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .page {
+            width: var(--page-w);
+            min-height: var(--page-h);
+            margin: 24px auto;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .28);
+            overflow: hidden;
+        }
+        
+        .page-accent {
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-deep), var(--accent) 50%, #c9a6ec);
+        }
+        /* ===== HEADER ===== */
+        
+        .header {
+            background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 100%);
+            color: #fff;
+            padding: 30px 36px 26px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07);
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            right: 40px;
+            bottom: -90px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, .14);
+            border: 1.5px solid rgba(255, 255, 255, .4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            flex: 0 0 auto;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        
+        .name {
+            font-family: 'Fraunces', serif;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: .3px;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, .18);
+        }
+        
+        .role {
+            font-size: 11px;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: #e3d4f5;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, .25);
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .contact-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 26px;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, .22);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11px;
+            color: #f2ecfa;
+            font-weight: 500;
+        }
+        
+        .contact-item svg {
+            width: 13px;
+            height: 13px;
+            stroke: #d9c4f0;
+            flex: 0 0 auto;
+        }
+        
+        .contact-item a {
+            color: #f2ecfa;
+            text-decoration: none;
+        }
+        /* ===== BODY GRID ===== */
+        
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 62mm;
+        }
+        
+        .main {
+            padding: 26px 28px 30px 36px;
+        }
+        
+        .rail {
+            background: var(--rail-bg);
+            border-left: 1px solid var(--rail-line);
+            padding: 26px 24px 30px;
+        }
+        /* ===== SECTIONS ===== */
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .sec-head .ico {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            box-shadow: 0 0 0 3px rgba(109, 63, 160, .07);
+        }
+        
+        .sec-head .ico svg {
+            width: 15px;
+            height: 15px;
+            stroke: var(--accent);
+        }
+        
+        .sec-head h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 15px;
+            letter-spacing: .6px;
+            color: var(--accent-deep);
+            font-weight: 700;
+        }
+        
+        .sec-head::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+        }
+        
+        .summary {
+            font-size: 11.3px;
+            color: var(--ink-soft);
+            text-align: justify;
+        }
+        /* ===== TIMELINE ===== */
+        
+        .job {
+            position: relative;
+            padding: 0 0 14px 20px;
+            border-left: 2px solid var(--line);
+            margin-left: 5px;
+        }
+        
+        .job:last-child {
+            padding-bottom: 0;
+        }
+        
+        .job::before {
+            content: '';
+            position: absolute;
+            left: -6.5px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            border-radius: 3px;
+            background: var(--accent);
+            transform: rotate(45deg);
+        }
+        
+        .job-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+        
+        .job-title {
+            font-size: 12.3px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        
+        .job-date {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: var(--accent-deep);
+            background: var(--accent-soft);
+            padding: 2px 9px;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex: 0 0 auto;
+            box-shadow: 0 0 0 1px rgba(109, 63, 160, .12) inset;
+        }
+        
+        .job-org {
+            font-size: 10.5px;
+            color: var(--muted);
+            font-weight: 500;
+            margin: 1px 0 6px;
+        }
+        
+        .job ul {
+            list-style: none;
+        }
+        
+        .job li {
+            font-size: 10.6px;
+            color: var(--ink-soft);
+            padding-left: 13px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+        
+        .job li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6.5px;
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            opacity: .5;
+            transform: rotate(45deg);
+        }
+        /* ===== RAIL ===== */
+        
+        .rail-block {
+            margin-bottom: 22px;
+        }
+        
+        .rail-title {
+            font-family: 'Fraunces', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-deep);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent-deep), var(--accent), transparent) 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .rail-title svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--accent);
+        }
+        
+        .skill-group {
+            margin-bottom: 12px;
+        }
+        
+        .skill-label {
+            font-size: 9.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .chip {
+            background: var(--chip-bg);
+            color: var(--accent-deep);
+            font-size: 9.8px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 0 0 1px rgba(109, 63, 160, .08) inset;
+        }
+        
+        .lang-row {
+            margin-bottom: 10px;
+        }
+        
+        .lang-head {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        
+        .lang-head span:last-child {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 9.8px;
+        }
+        
+        .bar {
+            height: 5px;
+            background: #e9e2f2;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .bar>i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+            border-radius: 4px;
+        }
+        
+        .bar>i.lvl-100 {
+            width: 100%;
+        }
+        
+        .bar>i.lvl-88 {
+            width: 88%;
+        }
+        
+        .bar>i.lvl-85 {
+            width: 85%;
+        }
+        /* ===== HIGHLIGHTS ===== */
+        
+        .ach-list {
+            list-style: none;
+        }
+        
+        .ach-list li {
+            font-size: 10.6px;
+            color: var(--ink-soft);
+            padding-left: 19px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .ach-list li svg {
+            position: absolute;
+            left: 0;
+            top: 1.5px;
+            width: 12px;
+            height: 12px;
+            stroke: var(--accent);
+        }
+        /* ===== EDUCATION ===== */
+        
+        .edu-item {
+            margin-bottom: 10px;
+        }
+        
+        .edu-deg {
+            font-size: 11.3px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        
+        .edu-sch {
+            font-size: 10.4px;
+            color: var(--muted);
+        }
+        
+        .edu-yr {
+            font-size: 9.5px;
+            color: var(--accent-deep);
+            font-weight: 700;
+        }
+        
+        .footer-note {
+            font-size: 9.8px;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+        }
+        
+        .footer-note strong {
+            color: var(--accent-deep);
+            font-style: normal;
+        }
+        /* ===== PRINT ===== */
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @media print {
+            html,
+            body {
+                background: #fff;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                min-height: 297mm;
+            }
+            .page,
+            .page-accent,
+            .header,
+            .avatar,
+            .rail,
+            .rail-title,
+            .chip,
+            .job-date,
+            .sec-head .ico,
+            .bar>i {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .job,
+            .edu-item,
+            .rail-block {
+                break-inside: avoid;
+            }
+            .sec-head {
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-accent"></div>
+        <!-- ============ HEADER ============ -->
+        <header class="header">
+            <div class="header-top">
+                <div class="avatar"><img src="assets/grace.jpg" alt="Grace Daka" /></div>
+                <div>
+                    <div class="name">Grace Daka</div>
+                    <div class="role">Game Localization Linguist · Translation &amp; Narrative</div>
+                </div>
+            </div>
+            <div class="contact-strip">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Lilongwe, Malawi
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>                    +265 996 873 573
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:gracedakaa@gmail.com">gracedakaa@gmail.com</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="body">
+            <!-- ============ MAIN ============ -->
+            <main class="main">
+                <!-- PROFILE -->
+                <section class="section">
+                    <div class="sec-head">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+                        <h2>Profile</h2>
+                    </div>
+                    <p class="summary">
+                        Multilingual localization linguist and writer with native-level command of <strong>French and Swahili</strong> (plus Lingala and Chichewa) and advanced English. 5+ years working at the intersection of language, culture and technology:
+                        translation, transcreation, review, subtitling and <strong>linguistic QA/LQA</strong>, plus large-scale <strong>AI/LLM evaluation and data annotation</strong> at localization leader <strong>RWS Group</strong>. Skilled at adapting
+                        source content into fluent, natural, culturally resonant target-language writing, preserving tone, voice, style and intent while flagging cultural, gender, religious and political sensitivities. Comfortable collaborating with PMs,
+                        writers and reviewers, working in English-based platforms and CAT tooling, and balancing creative expression with strict style, terminology and content-review constraints. A full-stack engineering background (React, Rails, Python,
+                        NLP/ASR/TTS pipelines) adds a rare technical fluency across localization tools and file formats.
+                    </p>
+                </section>
+
+                <!-- EXPERIENCE -->
+                <section class="section">
+                    <div class="sec-head">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                        <h2>Experience</h2>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Freelance Localization &amp; Narrative Linguist</span>
+                            <span class="job-date">2022 - 2024</span>
+                        </div>
+                        <div class="job-org">Independent · Remote</div>
+                        <ul>
+                            <li>Translate and adapt <strong>narrative, media and marketing content</strong> between French, Swahili and English (including dialogue, subtitles and story-driven copy) into natural, idiomatic target-language writing.</li>
+                            <li><strong>Transcreate</strong> rather than translate literally, preserving tone, character voice and intent while working in idioms and cultural references that fit the audience.</li>
+                            <li>Review and edit translations for <strong>quality, consistency and cultural appropriateness</strong>, keeping terminology aligned with glossaries and style guides and flagging sensitive content.</li>
+                            <li>Collaborate remotely with clients and project managers, delivering to deadlines using CAT tools.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">AI Data Annotator &amp; Language Evaluator</span>
+                            <span class="job-date">2024 - Present</span>
+                        </div>
+                        <div class="job-org">TELUS Digital · Remote (NDA)</div>
+                        <ul>
+                            <li>Reviewed and rated <strong>AI-generated responses and digital content</strong> (conversations, search / web results, digital-assistant and text outputs) for quality, accuracy, relevance and naturalness, following detailed project
+                                guidelines.
+                            </li>
+                            <li>Performed <strong>multilingual linguistic review and annotation</strong>, identifying grammar issues, translation errors, ambiguity and cultural inconsistencies to ensure natural language use and cultural appropriateness.</li>
+                            <li>Compared alternative responses and <strong>ranked outputs</strong> by quality criteria, delivering structured feedback to support AI model training and improvement.</li>
+                            <li>Completed <strong>thousands of evaluation and annotation tasks</strong> across confidential AI-training projects with high accuracy and productivity, working independently to deadlines.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Localization &amp; Narrative Content Specialist</span>
+                            <span class="job-date">2024 - 2025</span>
+                        </div>
+                        <div class="job-org">Rexplore Research Labs Limited · Remote</div>
+                        <ul>
+                            <li>Wrote and adapted <strong>target-language content</strong> (dialogue, prompts and example texts for the lab's speech and language tools), aiming for natural, engaging phrasing rather than word-for-word translation.</li>
+                            <li>Reviewed and edited translations and transcriptions across <strong>French, Swahili, Chichewa and Lingala</strong> for quality, consistency and cultural fit.</li>
+                            <li>Built style and terminology guidelines and led <strong>linguistic QA</strong>, resolving ambiguity and flagging culturally sensitive content.</li>
+                            <li>Worked with contributors, reviewers and PMs to implement feedback and keep quality consistent across languages.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Head of Operations &amp; Technical Lead</span>
+                            <span class="job-date">11/2025 - Present</span>
+                        </div>
+                        <div class="job-org">Rexplore Research Labs Limited · Malawi (Remote)</div>
+                        <ul>
+                            <li>Lead the technical and product direction of a lab building speech and language data tools for under-served African languages.</li>
+                            <li>Architected and delivered <strong>Corpus Studio</strong>, a full-stack data platform (NestJS, Next.js, MongoDB, BullMQ/Redis) deployed on Google Cloud Run with GitHub Actions CI/CD.</li>
+                            <li>Own end-to-end delivery, code review and system reliability, and <strong>mentor junior engineers</strong> from research goals through to shipped systems.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">AI Engineer &amp; Full-Stack Developer</span>
+                            <span class="job-date">01/2023 - 02/2025</span>
+                        </div>
+                        <div class="job-org">Suru8 AI · Remote</div>
+                        <ul>
+                            <li>Built and shipped AI-powered web platforms with <strong>.NET Core and ReactJS</strong>, and designed/deployed ML/NLP pipelines that improved response relevance by <strong>45%</strong>.</li>
+                            <li>Developed chat and <strong>SMS assistants</strong> integrating third-party REST APIs and messaging channels, directly relevant to <strong>mobile-money and USSD/SMS payment flows</strong>, lifting engagement by <strong>40%</strong>.</li>
+                            <li>Collaborated with cross-functional stakeholders and applied version control, code review and CI practices across delivery.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Generative AI Engineer</span>
+                            <span class="job-date">10/2024 - 03/2025</span>
+                        </div>
+                        <div class="job-org">Reality AI Lab · Remote</div>
+                        <ul>
+                            <li>Built a full-stack flashcard-generator web app (<strong>Flask + React</strong>) with LLM-driven content parsing and cross-platform data-export tooling.</li>
+                            <li>Ran parameter-efficient fine-tuning (LoRA) of open-weight models for low-resource-language and education tasks.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Linguistic AI Evaluator &amp; Localization QA Specialist</span>
+                            <span class="job-date">02/2025 - 01/2026</span>
+                        </div>
+                        <div class="job-org">RWS Group (global localization &amp; language-services leader) · Remote</div>
+                        <ul>
+                            <li>Evaluated and ranked multilingual model and translation outputs for <strong>fluency, adequacy, tone, register and cultural appropriateness</strong>, applying MQM-style error typologies (accuracy, terminology, style, locale
+                                conventions).
+                            </li>
+                            <li>Authored and reviewed <strong>500+ structured prompt/test sets</strong> and reference translations, performing span-level factuality, mistranslation and error analysis against detailed client style guides.</li>
+                            <li>Flagged <strong>culturally sensitive content</strong> (gender, race, religion, historical &amp; political risk) and delivered actionable feedback to PMs and reviewers to raise target-language quality.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Software Engineer (Data)</span>
+                            <span class="job-date">06/2022 - 01/2023</span>
+                        </div>
+                        <div class="job-org">UNC Project · Malawi Central Hospital</div>
+                        <ul>
+                            <li>Built a performance dashboard (<strong>Python, ReactJS</strong>) for staff to monitor and visualise progress.</li>
+                            <li>Ran data analysis (Pandas/SQL), lifting participation by 20% and automating workflows that cut manual workload by 35%.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Data Analyst</span>
+                            <span class="job-date">02/2021 - 07/2022</span>
+                        </div>
+                        <div class="job-org">UNHCR Connectivity · Dowa, Malawi</div>
+                        <ul>
+                            <li>Built survey dashboards and automated <strong>SQL</strong> reporting, reducing analysis time by <strong>50%</strong>, in a refugee and host-community setting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-top">
+                            <span class="job-title">Application Developer &amp; Trainer</span>
+                            <span class="job-date">05/2019 - 04/2020</span>
+                        </div>
+                        <div class="job-org">AppFactory for Africa · Lilongwe, Malawi</div>
+                        <ul>
+                            <li>Trained students in Python, C#, JavaScript and ReactJS (90% became employable) and supervised a community health app now used in <strong>10+ clinics</strong>.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- HIGHLIGHTS -->
+                <section class="section">
+                    <div class="sec-head">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+                        <h2>Highlights</h2>
+                    </div>
+                    <ul class="ach-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Native-level <strong>French &amp; Swahili</strong> (plus Lingala &amp; Chichewa) with
+                            hands-on translation, review, subtitling and LQA experience.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Performed <strong>multilingual AI/LLM linguistic evaluation &amp; annotation</strong>                            at RWS Group, applying MQM-style error typologies and cultural-risk review.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Shipped a multi-tenant <strong>Rails 8</strong> SaaS (TaskFlow) covering auth &amp; RBAC,
+                            real-time updates, background jobs, a REST API and reporting.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Built an AI MCQ generator (SynapseIQ) adopted by <strong>10,000+ educators</strong>,
+                            cutting assessment time by ~70%.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Delivered cloud-native platforms on <strong>AWS &amp; Google Cloud</strong> with Docker
+                            and GitHub Actions CI/CD.</li>
+                    </ul>
+                </section>
+
+                <!-- EDUCATION -->
+                <section class="section">
+                    <div class="sec-head">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                        <h2>Education</h2>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-deg">B.Sc. Computer Engineering</div>
+                        <div class="edu-sch">Livingstonia University, Malawi</div>
+                        <div class="edu-yr">2024</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-deg">Microsoft Technology Associate</div>
+                        <div class="edu-sch">AppFactory for Africa</div>
+                    </div>
+                </section>
+
+                <p class="footer-note">Open to remote game-localization work: translation, review, LQA &amp; narrative design (FR, Swahili, Lingala, Chichewa &harr; English). Portfolio, test samples &amp; references available on request.</p>
+            </main>
+
+            <!-- ============ RAIL ============ -->
+            <aside class="rail">
+                <div class="rail-block">
+                    <div class="rail-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>                        Localization
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Services</div>
+                        <div class="chips">
+                            <span class="chip">Translation</span><span class="chip">Transcreation</span><span class="chip">Review / Editing</span><span class="chip">LQA</span><span class="chip">Subtitling</span><span class="chip">MT Post-Editing</span>
+                            <span class="chip">Narrative Design</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Craft</div>
+                        <div class="chips">
+                            <span class="chip">Character Voice</span><span class="chip">Dialogue Flow</span><span class="chip">Worldbuilding</span><span class="chip">Tone &amp; Pacing</span><span class="chip">Cultural Adaptation</span><span class="chip">Idioms &amp; Slang</span>
+                            <span class="chip">Cultural-Risk Flagging</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Tooling &amp; QA</div>
+                        <div class="chips">
+                            <span class="chip">CAT Tools</span><span class="chip">Termbases / Glossaries</span><span class="chip">Style Guides</span><span class="chip">QA &amp; Consistency Checks</span><span class="chip">AI/LLM Evaluation</span>
+                            <span class="chip">Data Annotation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rail-block">
+                    <div class="rail-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Tech Stack
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Backend</div>
+                        <div class="chips">
+                            <span class="chip">REST APIs</span><span class="chip">Ruby on Rails</span><span class="chip">.NET Core</span><span class="chip">Node.js / NestJS</span><span class="chip">Python</span><span class="chip">PostgreSQL</span>
+                            <span class="chip">MongoDB</span><span class="chip">Redis</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Frontend</div>
+                        <div class="chips">
+                            <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Hotwire</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Tailwind CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Cloud &amp; DevOps</div>
+                        <div class="chips">
+                            <span class="chip">AWS</span><span class="chip">Google Cloud</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Nginx</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-label">Testing &amp; Practices</div>
+                        <div class="chips">
+                            <span class="chip">RSpec</span><span class="chip">Jest</span><span class="chip">Git</span><span class="chip">TDD</span><span class="chip">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rail-block">
+                    <div class="rail-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg> Languages
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-head"><span>French</span><span>C2 · Native</span></div>
+                        <div class="bar"><i class="lvl-100"></i></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-head"><span>Swahili</span><span>C2 · Native</span></div>
+                        <div class="bar"><i class="lvl-100"></i></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-head"><span>English</span><span>C1 · Advanced</span></div>
+                        <div class="bar"><i class="lvl-88"></i></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-head"><span>Lingala</span><span>C1 · Advanced</span></div>
+                        <div class="bar"><i class="lvl-88"></i></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-head"><span>Chichewa / Nyanja</span><span>C1 · Advanced</span></div>
+                        <div class="bar"><i class="lvl-85"></i></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+
+</html>
